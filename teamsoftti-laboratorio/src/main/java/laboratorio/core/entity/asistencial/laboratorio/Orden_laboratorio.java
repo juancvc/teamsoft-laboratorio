@@ -9,18 +9,18 @@ import java.sql.Timestamp;
 				resultClasses = Orden_laboratorio.class,
 				parameters = {
 				
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODORGAN", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODINSTI", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODSEDEI", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.OUT, name = "CODORDEN", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODPERSO", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CANT_ITEMS", type = int.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CADENA_CODTARIF", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CADENA_CANTIDAD", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.OUT, name = "NROPERIO", type = String.class),  
-		    @StoredProcedureParameter(mode = ParameterMode.IN, name = "AUCDUSCR", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "AUPCIPCR", type = String.class), 
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "PORCDESC", type = int.class)
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODORGAN", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODINSTI", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODSEDEI", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.OUT, name = "p_CODORDEN", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODPERSO", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CANT_ITEMS", type = int.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CADENA_CODTARIF", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CADENA_CANTIDAD", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.OUT, name = "p_NROPERIO", type = String.class),  
+		    @StoredProcedureParameter(mode = ParameterMode.IN, name = "p_AUCDUSCR", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_AUPCIPCR", type = String.class), 
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_PORCDESC", type = int.class)
  }),
 @NamedStoredProcedureQuery(name = "orden.modificar", procedureName = "SIGEHOV2BANC.BANC.CAMPANIA_UPDATE",
 resultClasses = Orden_laboratorio.class,
@@ -28,214 +28,204 @@ parameters = {
 				
 			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODORGAN", type = String.class),
 			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODINSTI", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODSEDEI", type = String.class),
-
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODCAMPA", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "NROPERIO", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "NOMCAMPA", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "LUGCAMPA", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "FECHAINI", type = String.class), 
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "FECHAFIN", type = String.class),
-		    @StoredProcedureParameter(mode = ParameterMode.IN, name = "SITUACRG", type = String.class),
-		    @StoredProcedureParameter(mode = ParameterMode.IN, name = "AUCDUSMO", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "AUPCIPMO", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODSEDEI", type = String.class), 
  }),
 @NamedStoredProcedureQuery(name = "orden.eliminar", procedureName = "LABO.USP_ORDEN_ANULAR", 
 resultClasses = Orden_laboratorio.class,
 parameters = {
 			
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODORGAN", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODINSTI", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODSEDEI", type = String.class),  
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "NROPERIO", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODORDEN", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODORGAN", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODINSTI", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODSEDEI", type = String.class),  
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_NROPERIO", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODORDEN", type = String.class),
 			
-		    @StoredProcedureParameter(mode = ParameterMode.IN, name = "TG1TPANU", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "MOTIVOAN", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "AUCDUSMO", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "AUPCIPMO", type = String.class),
+		    @StoredProcedureParameter(mode = ParameterMode.IN, name = "p_TG1TPANU", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_MOTIVOAN", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_AUCDUSMO", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_AUPCIPMO", type = String.class),
 			
  }),
 @NamedStoredProcedureQuery(name = "orden.buscarPorFiltros", procedureName = "LABO.USP_ORDEN_LISTAR_X_FILTROS", 
 resultClasses = Orden_laboratorio.class,
 parameters = {
 		
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "FECDESDE", type = String.class) ,
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "FECHASTA", type = String.class) ,
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "SITUACRG", type = String.class) 
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_FECDESDE", type = String.class) ,
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_FECHASTA", type = String.class) ,
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_SITUACRG", type = String.class) 
  }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteCantidadAnualOrdenSituacion", procedureName = "LABO.USP_REPORTE_CANTIDAD_ANUAL_ORDEN_SITUACION",
 resultClasses = Orden_laboratorio.class,
 parameters = {		
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "ANIO", type = String.class) ,
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "SITUACRG", type = String.class)
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_ANIO", type = String.class) ,
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_SITUACRG", type = String.class)
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteCantidadMensualOrdenSituacion", procedureName = "LABO.USP_REPORTE_CANTIDAD_MENSUAL_ORDEN_SITUACION",
 resultClasses = Orden_laboratorio.class,
 parameters = {		
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "MES", 	 type = 	String.class) ,
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "ANIO", 	  type = 	String.class) ,
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "SITUACRG", type = 	String.class)
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_MES", 	 type = 	String.class) ,
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_ANIO", 	  type = 	String.class) ,
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_SITUACRG", type = 	String.class)
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteCantidadDiarioOrdenSituacion", procedureName = "LABO.USP_REPORTE_CANTIDAD_ORDEN_SITUACION",
 resultClasses = Orden_laboratorio.class,
 parameters = {		
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "FECHA", 	 type = 	String.class) ,
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "SITUACRG", type = 	String.class)
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_fecha",    type = 	String.class) ,
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_situacrg", type = 	String.class)
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteCantidadSemanalOrdenSituacion", procedureName = "LABO.USP_REPORTE_CANTIDAD_SEMANAL_ORDEN_SITUACION",
 resultClasses = Orden_laboratorio.class,
 parameters = {		
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "FECHA", 	 type = 	String.class) ,
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "SITUACRG", type = 	String.class)
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_FECHA", 	 type = 	String.class) ,
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_SITUACRG", type = 	String.class)
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteVentaAnual", procedureName = "LABO.USP_REPORTE_VENTA_ANUAL",
 resultClasses = Orden_laboratorio.class,
 parameters = {		
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "ANIO", 	 type = 	String.class) 
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_ANIO", 	 type = 	String.class) 
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteVentaDiaria", procedureName = "LABO.USP_REPORTE_VENTA_DIARIA",
 resultClasses = Orden_laboratorio.class,
 parameters = {		
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "FECHA", 	 type = 	String.class) 
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "P_FECHA", 	 type = 	String.class) 
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteVentaMensual", procedureName = "LABO.USP_REPORTE_VENTA_MENSUAL_PERIODO ",
 resultClasses = Orden_laboratorio.class,
 parameters = {	
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "MES", 	 type = 	String.class), 
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "ANIO", 	 type = 	String.class) 
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_MES", 	 type = 	String.class), 
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_ANIO", 	 type = 	String.class) 
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteVentaSemanal", procedureName = "LABO.USP_REPORTE_VENTA_SEMANAL",
 resultClasses = Orden_laboratorio.class,
 parameters = {		
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "FECHA", 	 type = 	String.class) 
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_FECHA", 	 type = 	String.class) 
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteDetalleOrdenVentaAnual", procedureName = "LABO.USP_REPORTE_VENTA_ANUAL_ORDEN",
 resultClasses = Orden_laboratorio.class,
 parameters = {		
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "ANIO", 	 type = 	String.class) 
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_ANIO", 	 type = 	String.class) 
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteDetalleOrdenVentaDiaria", procedureName = "LABO.USP_REPORTE_VENTA_DIARIA_ORDEN",
 resultClasses = Orden_laboratorio.class,
 parameters = {		
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "FECHA", 	 type = 	String.class) 
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_FECHA", 	 type = 	String.class) 
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteDetalleOrdenVentaMensual", procedureName = "LABO.USP_REPORTE_VENTA_MENSUAL_ORDEN",
 resultClasses = Orden_laboratorio.class,
 parameters = {		
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "MES", 	 type = 	String.class), 
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "ANIO", 	 type = 	String.class)  
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_MES", 	 type = 	String.class), 
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_ANIO", 	 type = 	String.class)  
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteDetalleOrdenVentaSemanal", procedureName = "LABO.USP_REPORTE_VENTA_SEMANAL_ORDEN",
 resultClasses = Orden_laboratorio.class,
 parameters = {		
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "FECHA", 	 type = 	String.class) 
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_FECHA", 	 type = 	String.class) 
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteVentaMensualPeriodoArea", procedureName = "LABO.USP_REPORTE_VENTA_MENSUAL_PERIODO_AREA",
 resultClasses = Orden_laboratorio.class,
 parameters = {		
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "MES", 	 type = 	String.class), 
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "ANIO", 	 type = 	String.class)  
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_MES", 	 type = 	String.class), 
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_ANIO", 	 type = 	String.class)  
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteVentaMensualPeriodoBarra", procedureName = "LABO.USP_REPORTE_VENTA_MENSUAL_PERIODO_BARRA",
 resultClasses = Orden_laboratorio.class,
 parameters = {		
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "ANIO", 	 type = 	String.class)  
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_ANIO", 	 type = 	String.class)  
 }),
 
 
 @NamedStoredProcedureQuery(name = "orden.reporteDetalleDiariaOrdenSituacion", procedureName = "LABO.USP_REPORTE_DIARIA_ORDEN_SITUACION",
 resultClasses = Orden_laboratorio.class,
 parameters = {		
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "FECHA", 	 type = 	String.class) ,
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "SITUACRG", type = 	String.class)
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_FECHA", 	 type = 	String.class) ,
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_SITUACRG", type = 	String.class)
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteDetalleSemanalOrdenSituacion", procedureName = "LABO.USP_REPORTE_SEMANAL_ORDEN_SITUACION",
 resultClasses = Orden_laboratorio.class,
 parameters = {		
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "FECHA", 	 type = 	String.class) ,
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "SITUACRG", type = 	String.class)
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_FECHA", 	 type = 	String.class) ,
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_SITUACRG", type = 	String.class)
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteDetalleMensualOrdenSituacion", procedureName = "LABO.USP_REPORTE_MENSUAL_ORDEN_SITUACION",
 resultClasses = Orden_laboratorio.class,
 parameters = {		
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "MES", 	 type = 	String.class), 
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "ANIO", 	 type = 	String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "SITUACRG", type = 	String.class)
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_MES", 	 type = 	String.class), 
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_ANIO", 	 type = 	String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_SITUACRG", type = 	String.class)
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteDetalleAnualOrdenSituacion", procedureName = "LABO.USP_REPORTE_ANUAL_ORDEN_SITUACION",
 resultClasses = Orden_laboratorio.class,
 parameters = {		
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "ANIO", 	 type = 	String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "SITUACRG", type = 	String.class)
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_ANIO", 	 type = 	String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_SITUACRG", type = 	String.class)
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteCantidadAnualExamenesSolicitados", procedureName = "LABO.USP_REPORTE_CANTIDAD_EXAMENES_MAS_SOLICITADOS_ANUAL",
 resultClasses = Orden_laboratorio.class,
 parameters = {
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "ANIO", type = String.class)
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_ANIO", type = String.class)
 }),
 
 
 @NamedStoredProcedureQuery(name = "orden.reporteCantidadAnualExamenesSolicitadosTotal", procedureName = "LABO.USP_REPORTE_CANTIDAD_EXAMENES_MAS_SOLICITADOS_ANUAL_TOTAL",
 resultClasses = Orden_laboratorio.class,
 parameters = {		
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "ANIO", type = String.class)
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_ANIO", type = String.class)
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteCantidadDiarioExamenesSolicitados", procedureName = "LABO.USP_REPORTE_CANTIDAD_EXAMENES_MAS_SOLICITADOS_DIARIO",
 resultClasses = Orden_laboratorio.class,
 parameters = {
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "FECHA", type = String.class)
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_FECHA", type = String.class)
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteCantidadDiarioExamenesSolicitadosTotal", procedureName = "LABO.USP_REPORTE_CANTIDAD_EXAMENES_MAS_SOLICITADOS_DIARIO_TOTAL",
 resultClasses = Orden_laboratorio.class,
 parameters = {
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "FECHA", type = String.class)
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_FECHA", type = String.class)
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteCantidadMensualExamenesSolicitados", procedureName = "LABO.USP_REPORTE_CANTIDAD_EXAMENES_MAS_SOLICITADOS_MENSUAL_PERIODO",
 resultClasses = Orden_laboratorio.class,
 parameters = {
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "MES", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "ANIO", type = String.class)
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_MES", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_ANIO", type = String.class)
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteCantidadMensualExamenesSolicitadosTotal", procedureName = "LABO.USP_REPORTE_CANTIDAD_EXAMENES_MAS_SOLICITADOS_MENSUAL_PERIODO_TOTAL",
 resultClasses = Orden_laboratorio.class,
 parameters = {
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "MES", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "ANIO", type = String.class)
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_MES", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_ANIO", type = String.class)
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteCantidadSemanalExamenesSolicitados", procedureName = "LABO.USP_REPORTE_CANTIDAD_EXAMENES_MAS_SOLICITADOS_SEMANAL",
 resultClasses = Orden_laboratorio.class,
 parameters = {
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "FECHA", type = String.class)
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_FECHA", type = String.class)
 }),
 
 @NamedStoredProcedureQuery(name = "orden.reporteCantidadSemanalExamenesSolicitadosTotal", procedureName = "LABO.USP_REPORTE_CANTIDAD_EXAMENES_MAS_SOLICITADOS_SEMANAL_TOTAL",
 resultClasses = Orden_laboratorio.class,
 parameters = {
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "FECHA", type = String.class)
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_FECHA", type = String.class)
 }),
 
 @NamedStoredProcedureQuery(name = "orden.buscarPorObjeto", procedureName = "SIGEHOV2BANC.BANC.POSTULANTE_CAMPANIA_LISTA_X_OBJETO", resultClasses = Orden_laboratorio.class, parameters = {

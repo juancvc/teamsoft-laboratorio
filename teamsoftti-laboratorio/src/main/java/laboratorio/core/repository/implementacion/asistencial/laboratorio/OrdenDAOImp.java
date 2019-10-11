@@ -41,17 +41,17 @@ public class OrdenDAOImp implements OrdenDAO {
 		try {
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.insertar");  
 			System.out.println(" OrdenBean.getPorcentajeDescuento()" +  OrdenBean.getPorcentajeDescuento());
-			spq.setParameter("CODORGAN", OrdenBean.getCodigoOrganizacion());
-			spq.setParameter("CODINSTI", OrdenBean.getCodigoInstitucion());
-			spq.setParameter("CODSEDEI", OrdenBean.getCodigoSede()); 
-			spq.setParameter("CODPERSO", OrdenBean.getPacienteBean().getPersona().getCodigo());
-			spq.setParameter("CANT_ITEMS", OrdenBean.getCantidadItems());
-			spq.setParameter("CADENA_CODTARIF", OrdenBean.getCadenaCodigoTarifario());
-			spq.setParameter("CADENA_CANTIDAD", OrdenBean.getCadenaCantidad());
+			spq.setParameter("p_CODORGAN", OrdenBean.getCodigoOrganizacion());
+			spq.setParameter("p_CODINSTI", OrdenBean.getCodigoInstitucion());
+			spq.setParameter("p_CODSEDEI", OrdenBean.getCodigoSede()); 
+			spq.setParameter("p_CODPERSO", OrdenBean.getPacienteBean().getPersona().getCodigo());
+			spq.setParameter("p_CANT_ITEMS", OrdenBean.getCantidadItems());
+			spq.setParameter("p_CADENA_CODTARIF", OrdenBean.getCadenaCodigoTarifario());
+			spq.setParameter("p_CADENA_CANTIDAD", OrdenBean.getCadenaCantidad());
 			
-			spq.setParameter("AUCDUSCR", OrdenBean.getCodigoUsuarioCreacion());
-			spq.setParameter("AUPCIPCR", OrdenBean.getIpCreacion());
-			spq.setParameter("PORCDESC", OrdenBean.getPorcentajeDescuento());
+			spq.setParameter("p_AUCDUSCR", OrdenBean.getCodigoUsuarioCreacion());
+			spq.setParameter("p_AUPCIPCR", OrdenBean.getIpCreacion());
+			spq.setParameter("p_PORCDESC", OrdenBean.getPorcentajeDescuento());
 			
 			
 			spq.execute();
@@ -81,12 +81,6 @@ public class OrdenDAOImp implements OrdenDAO {
 			spq.setParameter("CODORGAN", OrdenBean.getCodigoOrganizacion());
 			spq.setParameter("CODINSTI", OrdenBean.getCodigoInstitucion());
 			spq.setParameter("CODSEDEI", OrdenBean.getCodigoSede()); 
-			spq.setParameter("CODCAMPA", OrdenBean.getCodigo());
-			spq.setParameter("NROPERIO", OrdenBean.getNumeroPeriodo()); 
-			spq.setParameter("SITUACRG", OrdenBean.getSituacion().getCodReg()); 
-			
-			spq.setParameter("AUCDUSMO", OrdenBean.getCodigoUsuarioModificacion());
-			spq.setParameter("AUPCIPMO", OrdenBean.getIpModificacion()); 
 			
 			spq.execute();  
 			sw=true;
@@ -106,16 +100,16 @@ public class OrdenDAOImp implements OrdenDAO {
 		boolean sw=false;
 		try {
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.eliminar"); 
-			spq.setParameter("CODORGAN", OrdenBean.getCodigoOrganizacion());
-			spq.setParameter("CODINSTI", OrdenBean.getCodigoInstitucion());
-			spq.setParameter("CODSEDEI", OrdenBean.getCodigoSede()); 
-			spq.setParameter("NROPERIO", OrdenBean.getNumeroPeriodo()); 
-			spq.setParameter("CODORDEN", OrdenBean.getCodigo());
+			spq.setParameter("p_CODORGAN", OrdenBean.getCodigoOrganizacion());
+			spq.setParameter("p_CODINSTI", OrdenBean.getCodigoInstitucion());
+			spq.setParameter("p_CODSEDEI", OrdenBean.getCodigoSede()); 
+			spq.setParameter("p_NROPERIO", OrdenBean.getNumeroPeriodo()); 
+			spq.setParameter("p_CODORDEN", OrdenBean.getCodigo());
 		
-			spq.setParameter("TG1TPANU", OrdenBean.getMotivoAnular().getCodReg()); 
-			spq.setParameter("MOTIVOAN", OrdenBean.getDetalleMotivoAnular()); 
-			spq.setParameter("AUCDUSMO", OrdenBean.getCodigoUsuarioModificacion());
-			spq.setParameter("AUPCIPMO", OrdenBean.getIpModificacion()); 
+			spq.setParameter("p_TG1TPANU", OrdenBean.getMotivoAnular().getCodReg()); 
+			spq.setParameter("p_MOTIVOAN", OrdenBean.getDetalleMotivoAnular()); 
+			spq.setParameter("p_AUCDUSMO", OrdenBean.getCodigoUsuarioModificacion());
+			spq.setParameter("p_AUPCIPMO", OrdenBean.getIpModificacion()); 
 			
 			spq.execute();  
 			sw=true;
@@ -142,9 +136,9 @@ public class OrdenDAOImp implements OrdenDAO {
 		List<OrdenBean> lstOrdenBean = null;
 		
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.buscarPorFiltros");   
-			spq.setParameter("FECDESDE", OrdenBean.getFechaDesde()); 
-			spq.setParameter("FECHASTA", OrdenBean.getFechaHasta()); 
-			spq.setParameter("SITUACRG", OrdenBean.getSituacion().getCodReg()); 
+			spq.setParameter("p_FECDESDE", OrdenBean.getFechaDesde()); 
+			spq.setParameter("p_FECHASTA", OrdenBean.getFechaHasta()); 
+			spq.setParameter("p_SITUACRG", OrdenBean.getSituacion().getCodReg()); 
 			 if (spq.execute()) {
 				 lstOrden =  spq.getResultList(); 
 			 }
@@ -246,8 +240,8 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		OrdenBean oOrdenBean = null;
 		try {
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteCantidadAnualOrdenSituacion");
-			spq.setParameter("ANIO", ordenBean.getNumeroPeriodo());
-			spq.setParameter("SITUACRG", ordenBean.getSituacion().getCodReg()); 
+			spq.setParameter("p_ANIO", ordenBean.getNumeroPeriodo());
+			spq.setParameter("p_SITUACRG", ordenBean.getSituacion().getCodReg()); 
 				
 			if (spq.execute()) {
 				lstOrdenlaboratorio =  spq.getResultList(); 
@@ -271,9 +265,9 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		OrdenBean oOrdenBean = null;
 		try {
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteCantidadMensualOrdenSituacion");
-			spq.setParameter("MES", 	 ordenBean.getNroMes());
-			spq.setParameter("ANIO", 	 ordenBean.getNumeroPeriodo());
-			spq.setParameter("SITUACRG", ordenBean.getSituacion().getCodReg()); 
+			spq.setParameter("p_MES", 	 ordenBean.getNroMes());
+			spq.setParameter("p_ANIO", 	 ordenBean.getNumeroPeriodo());
+			spq.setParameter("p_SITUACRG", ordenBean.getSituacion().getCodReg()); 
 				
 			if (spq.execute()) {
 				lstOrdenlaboratorio =  spq.getResultList(); 
@@ -297,8 +291,8 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		OrdenBean oOrdenBean = null;
 		try {
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteCantidadDiarioOrdenSituacion");
-			spq.setParameter("FECHA", 	 ordenBean.getFecha());
-			spq.setParameter("SITUACRG", ordenBean.getSituacion().getCodReg()); 
+			spq.setParameter("p_fecha",    ordenBean.getFecha());
+			spq.setParameter("p_situacrg", ordenBean.getSituacion().getCodReg()); 
 				
 			if (spq.execute()) {
 				lstOrdenlaboratorio =  spq.getResultList(); 
@@ -322,8 +316,8 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		OrdenBean oOrdenBean = null;
 		try {
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteCantidadSemanalOrdenSituacion");
-			spq.setParameter("FECHA", 	 ordenBean.getFecha());
-			spq.setParameter("SITUACRG", ordenBean.getSituacion().getCodReg()); 
+			spq.setParameter("p_FECHA", 	 ordenBean.getFecha());
+			spq.setParameter("p_SITUACRG", ordenBean.getSituacion().getCodReg()); 
 				
 			if (spq.execute()) {
 				lstOrdenlaboratorio =  spq.getResultList(); 
@@ -347,7 +341,7 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		OrdenBean oOrdenBean = null;
 		try {
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteVentaAnual");
-			spq.setParameter("ANIO", 	 ordenBean.getNumeroPeriodo());				
+			spq.setParameter("p_ANIO", 	 ordenBean.getNumeroPeriodo());				
 			if (spq.execute()) {
 				lstOrdenlaboratorio =  spq.getResultList(); 
 			} 
@@ -370,8 +364,8 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		OrdenBean oOrdenBean = null;
 		try {
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteVentaMensual");
-			spq.setParameter("MES", 	 ordenBean.getNroMes());	
-			spq.setParameter("ANIO", 	 ordenBean.getNumeroPeriodo());				
+			spq.setParameter("p_MES", 	 ordenBean.getNroMes());	
+			spq.setParameter("p_ANIO", 	 ordenBean.getNumeroPeriodo());				
 			if (spq.execute()) {
 				lstOrdenlaboratorio =  spq.getResultList(); 
 			} 
@@ -394,7 +388,7 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		OrdenBean oOrdenBean = null;
 		try {
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteVentaDiaria");
-			spq.setParameter("FECHA", 	 ordenBean.getFecha());			
+			spq.setParameter("P_FECHA", 	 ordenBean.getFecha());			
 			if (spq.execute()) {
 				lstOrdenlaboratorio =  spq.getResultList(); 
 			} 
@@ -417,7 +411,7 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		OrdenBean oOrdenBean = null;
 		try {
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteVentaSemanal");
-			spq.setParameter("FECHA", 	 ordenBean.getFecha());			
+			spq.setParameter("p_FECHA", 	 ordenBean.getFecha());			
 			if (spq.execute()) {
 				lstOrdenlaboratorio =  spq.getResultList(); 
 			} 
@@ -440,7 +434,7 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		List<OrdenBean> lstOrdenBean = null;
 		
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteDetalleOrdenVentaAnual");   
-			spq.setParameter("ANIO", 	 ordenBean.getNumeroPeriodo());	
+			spq.setParameter("p_ANIO", 	 ordenBean.getNumeroPeriodo());	
 			
 			 if (spq.execute()) {
 				 lstOrden =  spq.getResultList(); 
@@ -463,8 +457,8 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		List<OrdenBean> lstOrdenBean = null;
 		
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteDetalleOrdenVentaMensual"); 
-			spq.setParameter("MES", 	 ordenBean.getNroMes());	
-			spq.setParameter("ANIO", 	 ordenBean.getNumeroPeriodo());	
+			spq.setParameter("p_MES", 	 ordenBean.getNroMes());	
+			spq.setParameter("p_ANIO", 	 ordenBean.getNumeroPeriodo());	
 			
 			 if (spq.execute()) {
 				 lstOrden =  spq.getResultList(); 
@@ -486,7 +480,7 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		List<OrdenBean> lstOrdenBean = null;
 		
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteDetalleOrdenVentaDiaria"); 
-			spq.setParameter("FECHA", 	 ordenBean.getFecha());	
+			spq.setParameter("p_FECHA", 	 ordenBean.getFecha());	
 			 if (spq.execute()) {
 				 lstOrden =  spq.getResultList(); 
 			 }
@@ -507,7 +501,7 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		List<OrdenBean> lstOrdenBean = null;
 		
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteDetalleOrdenVentaSemanal"); 
-			spq.setParameter("FECHA", 	 ordenBean.getFecha());	
+			spq.setParameter("p_FECHA", 	 ordenBean.getFecha());	
 			 if (spq.execute()) {
 				 lstOrden =  spq.getResultList(); 
 			 }
@@ -528,8 +522,8 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		List<OrdenBean> lstOrdenBean = null;
 		
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteVentaMensualPeriodoArea"); 
-			spq.setParameter("MES", 	 ordenBean.getNroMes());	
-			spq.setParameter("ANIO", 	 ordenBean.getNumeroPeriodo());		
+			spq.setParameter("p_MES", 	 ordenBean.getNroMes());	
+			spq.setParameter("p_ANIO", 	 ordenBean.getNumeroPeriodo());		
 			 if (spq.execute()) {
 				 lstOrden =  spq.getResultList(); 
 			 }
@@ -550,7 +544,7 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		List<OrdenBean> lstOrdenBean = null;
 		
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteVentaMensualPeriodoBarra"); 
-			spq.setParameter("ANIO", 	 ordenBean.getNumeroPeriodo());		
+			spq.setParameter("p_ANIO", 	 ordenBean.getNumeroPeriodo());		
 			 if (spq.execute()) {
 				 lstOrden =  spq.getResultList(); 
 			 }
@@ -571,8 +565,8 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		List<OrdenBean> lstOrdenBean = null;
 		
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteDetalleAnualOrdenSituacion"); 
-			spq.setParameter("ANIO", 	 ordenBean.getNumeroPeriodo());		
-			spq.setParameter("SITUACRG", ordenBean.getSituacion().getCodReg()); 
+			spq.setParameter("p_ANIO", 	 ordenBean.getNumeroPeriodo());		
+			spq.setParameter("p_SITUACRG", ordenBean.getSituacion().getCodReg()); 
 			 if (spq.execute()) {
 				 lstOrden =  spq.getResultList(); 
 			 }
@@ -593,9 +587,9 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		List<OrdenBean> lstOrdenBean = null;
 		
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteDetalleMensualOrdenSituacion");
-			spq.setParameter("MES", 	 ordenBean.getNroMes());	
-			spq.setParameter("ANIO", 	 ordenBean.getNumeroPeriodo());		
-			spq.setParameter("SITUACRG", ordenBean.getSituacion().getCodReg()); 
+			spq.setParameter("p_MES", 	 ordenBean.getNroMes());	
+			spq.setParameter("p_ANIO", 	 ordenBean.getNumeroPeriodo());		
+			spq.setParameter("p_SITUACRG", ordenBean.getSituacion().getCodReg()); 
 			 if (spq.execute()) {
 				 lstOrden =  spq.getResultList(); 
 			 }
@@ -616,8 +610,8 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		List<OrdenBean> lstOrdenBean = null;
 		
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteDetalleDiariaOrdenSituacion");
-			spq.setParameter("FECHA", 	 ordenBean.getFecha());		
-			spq.setParameter("SITUACRG", ordenBean.getSituacion().getCodReg()); 
+			spq.setParameter("p_FECHA", 	 ordenBean.getFecha());		
+			spq.setParameter("p_SITUACRG", ordenBean.getSituacion().getCodReg()); 
 			 if (spq.execute()) {
 				 lstOrden =  spq.getResultList(); 
 			 }
@@ -638,8 +632,8 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		List<OrdenBean> lstOrdenBean = null;
 		
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteDetalleSemanalOrdenSituacion");
-			spq.setParameter("FECHA", 	 ordenBean.getFecha());		
-			spq.setParameter("SITUACRG", ordenBean.getSituacion().getCodReg()); 
+			spq.setParameter("p_FECHA", 	 ordenBean.getFecha());		
+			spq.setParameter("p_SITUACRG", ordenBean.getSituacion().getCodReg()); 
 			 if (spq.execute()) {
 				 lstOrden =  spq.getResultList(); 
 			 }
@@ -660,7 +654,7 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		List<OrdenBean> lstOrdenBean = null;
 		
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteCantidadAnualExamenesSolicitados");
-			spq.setParameter("ANIO", 	 ordenBean.getNumeroPeriodo());	
+			spq.setParameter("p_ANIO", 	 ordenBean.getNumeroPeriodo());	
 			 if (spq.execute()) {
 				 lstOrden =  spq.getResultList(); 
 			 }
@@ -681,7 +675,7 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		List<OrdenBean> lstOrdenBean = null;
 		
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteCantidadAnualExamenesSolicitadosTotal");
-			spq.setParameter("ANIO", 	 ordenBean.getNumeroPeriodo());	
+			spq.setParameter("p_ANIO", 	 ordenBean.getNumeroPeriodo());	
 			 if (spq.execute()) {
 				 lstOrden =  spq.getResultList(); 
 			 }
@@ -702,8 +696,8 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		List<OrdenBean> lstOrdenBean = null;
 		
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteCantidadMensualExamenesSolicitados");
-			spq.setParameter("MES", 	 ordenBean.getNroMes());	
-			spq.setParameter("ANIO", 	 ordenBean.getNumeroPeriodo());	
+			spq.setParameter("p_MES", 	 ordenBean.getNroMes());	
+			spq.setParameter("p_ANIO", 	 ordenBean.getNumeroPeriodo());	
 			 if (spq.execute()) {
 				 lstOrden =  spq.getResultList(); 
 			 }
@@ -724,8 +718,8 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		List<OrdenBean> lstOrdenBean = null;
 		
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteCantidadMensualExamenesSolicitadosTotal");
-			spq.setParameter("MES", 	 ordenBean.getNroMes());	
-			spq.setParameter("ANIO", 	 ordenBean.getNumeroPeriodo());	
+			spq.setParameter("p_MES", 	 ordenBean.getNroMes());	
+			spq.setParameter("p_ANIO", 	 ordenBean.getNumeroPeriodo());	
 			 if (spq.execute()) {
 				 lstOrden =  spq.getResultList(); 
 			 }
@@ -746,7 +740,7 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		List<OrdenBean> lstOrdenBean = null;
 		
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteCantidadDiarioExamenesSolicitados");
-			spq.setParameter("FECHA", 	 ordenBean.getFecha());	
+			spq.setParameter("p_FECHA", 	 ordenBean.getFecha());	
 			 if (spq.execute()) {
 				 lstOrden =  spq.getResultList(); 
 			 }
@@ -767,7 +761,7 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		List<OrdenBean> lstOrdenBean = null;
 		
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteCantidadDiarioExamenesSolicitadosTotal");
-			spq.setParameter("FECHA", 	 ordenBean.getFecha());	
+			spq.setParameter("p_FECHA", 	 ordenBean.getFecha());	
 			 if (spq.execute()) {
 				 lstOrden =  spq.getResultList(); 
 			 }
@@ -788,7 +782,7 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		List<OrdenBean> lstOrdenBean = null;
 		
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteCantidadSemanalExamenesSolicitados");
-			spq.setParameter("FECHA", 	 ordenBean.getFecha());	
+			spq.setParameter("p_FECHA", 	 ordenBean.getFecha());	
 			 if (spq.execute()) {
 				 lstOrden =  spq.getResultList(); 
 			 }
@@ -809,7 +803,7 @@ private List<OrdenBean> deListaObjetoAListaObjetoBean(List<Orden_laboratorio> ls
 		List<OrdenBean> lstOrdenBean = null;
 		
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("orden.reporteCantidadSemanalExamenesSolicitadosTotal");
-			spq.setParameter("FECHA", 	 ordenBean.getFecha());	
+			spq.setParameter("p_FECHA", 	 ordenBean.getFecha());	
 			 if (spq.execute()) {
 				 lstOrden =  spq.getResultList(); 
 			 }

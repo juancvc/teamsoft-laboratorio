@@ -1,10 +1,15 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
+
 <!DOCTYPE html>
-<html>
+<html lang="en" data-textdirection="ltr" class="loading">
 <head>
-  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
+  <meta name="description" content="admin">
+  <meta name="keywords" content="admin">
   <meta name="author" content="">
 
   <title>Laboratorio</title>
@@ -39,14 +44,9 @@
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
-
-      <jsp:include
-				page="${pageContext.request.contextPath}/../layout/head-nav-view.jsp" />
-				
-				
-			<jsp:include
-				page="${pageContext.request.contextPath}/../layout/menu-view.jsp" />
+<div class="wrapper"> 
+      <jsp:include page="${pageContext.request.contextPath}/../layout/head-nav-view.jsp" />
+	  <jsp:include page="${pageContext.request.contextPath}/../layout/menu-view.jsp" />
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -538,8 +538,7 @@
   </div>
   <!-- /.content-wrapper -->
 
-  <jsp:include
-			page="${pageContext.request.contextPath}/../layout/footer-view.jsp" />
+  <jsp:include page="${pageContext.request.contextPath}/../layout/footer-view.jsp" />
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
