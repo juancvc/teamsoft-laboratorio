@@ -142,7 +142,7 @@ public class Usuario implements Serializable {
 	@Column(name = "SWCLAVEP")
 	private String vFlgrestpas;
 
-	@Column(name = "NOMBPERF")
+	@Column(name = "NOMPERFIL")
 	private String nomPerfil;
 
 	@Column(name = "APEPATER")

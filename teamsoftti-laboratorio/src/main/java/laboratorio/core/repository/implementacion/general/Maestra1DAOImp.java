@@ -247,8 +247,8 @@ public class Maestra1DAOImp implements Maestra1DAO {
 		List<TablaBean> lstTablaBean = null;
 		System.out.println("tgemaeGene01 listarPorCodigoTabla  "+ codTabla);
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("tgemaeGene01.listarPorCodigoTabla");  
-			spq.setParameter("CODTABLA", codTabla);   
-			spq.setParameter("TIPO", tipo);   
+			spq.setParameter("p_CODTABLA", codTabla);   
+			spq.setParameter("p_TIPO", tipo);   
 			if (spq.execute()) {
 				lstMaestra1 =  spq.getResultList(); 
 			} 

@@ -132,11 +132,11 @@ input[type=text] {
 	<div class="wrapper">
 
 		<jsp:include
-			page="${pageContext.request.contextPath}/../layout/head-nav-view.jsp" />
+			page="/layout/head-nav-view.jsp" />
 
 
 		<jsp:include
-			page="${pageContext.request.contextPath}/../layout/menu-view.jsp" />
+			page="/layout/menu-view.jsp" />
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
@@ -518,7 +518,7 @@ input[type=text] {
 		<!-- Control Sidebar -->
  
  <jsp:include
-			page="${pageContext.request.contextPath}/../layout/confirmacion-modal-view.jsp" />
+			page="/layout/confirmacion-modal-view.jsp" />
 	
 	<!-- ./wrapper -->
 		<!-- jQuery 3 -->

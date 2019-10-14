@@ -45,8 +45,9 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper"> 
-      <jsp:include page="${pageContext.request.contextPath}/../layout/head-nav-view.jsp" />
-	  <jsp:include page="${pageContext.request.contextPath}/../layout/menu-view.jsp" />
+      <!-- Content Wrapper. Contains page content -->
+       <jsp:include page="/layout/head-nav-view.jsp" />
+	  <jsp:include page="/layout/menu-view.jsp" />
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -538,7 +539,7 @@
   </div>
   <!-- /.content-wrapper -->
 
-  <jsp:include page="${pageContext.request.contextPath}/../layout/footer-view.jsp" />
+  <jsp:include page="/layout/footer-view.jsp" />
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
