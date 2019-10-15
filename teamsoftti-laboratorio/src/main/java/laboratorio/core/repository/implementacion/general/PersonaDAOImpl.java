@@ -159,8 +159,8 @@ public class PersonaDAOImpl implements PersonaDAO {
 		PersonaBean oPersonaBean = null;
 		try {
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("persona.buscarPorDocumento");
-			spq.setParameter("TG1TPDOC", personaBean.getTipoDocumento().getCodReg());  
-			spq.setParameter("NRODOCUM", personaBean.getNroDocumento());  
+			spq.setParameter("t_TG1TPDOC", personaBean.getTipoDocumento().getCodReg());  
+			spq.setParameter("t_NRODOCUM", personaBean.getNroDocumento());  
 			if (spq.execute()) {
 				lstpersona =  spq.getResultList(); 
 			} 
@@ -349,43 +349,42 @@ private List<PersonaBean> deListaObjetoAListaObjetoBean(List<Persona> lstPersona
 		boolean sw=false;
 		try {
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("persona.insertarPersonaLaboratorio");
-			/*
-			spq.setParameter("CODORGAN", persona.getCodigoOrganizacion()); 
-			spq.setParameter("CODINSTI", persona.getCodigoInstitucion()); 
-			spq.setParameter("CODSEDEI", persona.getCodigoSede()); */
 			
-			spq.setParameter("APEPATER", persona.getApellidoPaterno());
-			spq.setParameter("APEMATER", persona.getApellidoMaterno());
-			spq.setParameter("PRINOMBR", persona.getPrimerNombre()); 
-			spq.setParameter("SEGNOMBR", persona.getSegundoNombre()); 
-			spq.setParameter("TG1SEXOP", persona.getSexo().getCodReg());
-			spq.setParameter("FECHANACI", persona.getFechaNacStr());
+			spq.setParameter("p_APEPATER", persona.getApellidoPaterno());
+			spq.setParameter("p_APEMATER", persona.getApellidoMaterno());
+			spq.setParameter("p_PRINOMBR", persona.getPrimerNombre()); 
+			spq.setParameter("p_SEGNOMBR", persona.getSegundoNombre()); 
+			spq.setParameter("p_TG1SEXOP", persona.getSexo().getCodReg());
+			spq.setParameter("p_FECHANACI", persona.getFechaNacStr());
 			
-			spq.setParameter("CODTIPOD", persona.getTipoDocumento().getCodReg());  
-			spq.setParameter("NRODOCUM", persona.getNroDocumento()); 
+			spq.setParameter("p_CODTIPOD", persona.getTipoDocumento().getCodReg());  
+			spq.setParameter("p_NRODOCUM", persona.getNroDocumento()); 
 			
 		
-			spq.setParameter("TG1NACIO", persona.getNacionalidad().getCodReg()); 
-			spq.setParameter("TG1ESCIV", persona.getEstadoCivil().getCodReg()); 
-			spq.setParameter("LUGANACI", persona.getUbigeoNacimiento().getCodigoRegistro());
+			spq.setParameter("p_TG1NACIO", persona.getNacionalidad().getCodReg()); 
+			spq.setParameter("p_TG1ESCIV", persona.getEstadoCivil().getCodReg()); 
+			spq.setParameter("p_LUGANACI", persona.getUbigeoNacimiento().getCodigoRegistro());
 			
-			spq.setParameter("TG1NIINS", persona.getNivelInstrucion().getCodReg()); 
-			spq.setParameter("TG1OCUPA", persona.getOcupacion().getCodReg()); 
-			spq.setParameter("FOTO", persona.getFoto()); 
+			spq.setParameter("p_TG1NIINS", persona.getNivelInstrucion().getCodReg()); 
+			spq.setParameter("p_TG1OCUPA", persona.getOcupacion().getCodReg()); 
+			spq.setParameter("p_FOTO", persona.getFoto()); 
 			 
-			spq.setParameter("CORREODE", persona.getCorreo()); 
+			spq.setParameter("p_CORREODE", persona.getCorreo()); 
 			
-			spq.setParameter("DIRECCIO", persona.getDireccion()); 
-			spq.setParameter("CODRGUBI", persona.getUbigeoDireccion().getCodigoRegistro());  
+			spq.setParameter("p_DIRECCIO", persona.getDireccion()); 
+			spq.setParameter("p_CODRGUBI", persona.getUbigeoDireccion().getCodigoRegistro());  
 			
-			spq.setParameter("TELFNUMR", persona.getTelefonoNumero()); 
+			spq.setParameter("p_TELFNUMR", persona.getTelefonoNumero()); 
 			
-			spq.setParameter("VARENIEC", persona.getSwReniec()? "1":"0");
-			spq.setParameter("ORIGREGI", persona.getOrigenDeRegistro()); 
+			spq.setParameter("p_VARENIEC", persona.getSwReniec()? "1":"0");
+			spq.setParameter("p_ORIGREGI", persona.getOrigenDeRegistro()); 
 			
-			spq.setParameter("AUCDUSCR", persona.getCodigoUsuarioCreacion());
-			spq.setParameter("AUPCIPCR", persona.getIpCreacion());
+			spq.setParameter("p_AUCDUSCR", persona.getCodigoUsuarioCreacion());
+			spq.setParameter("p_AUPCIPCR", persona.getIpCreacion());
 			
+			spq.setParameter("p_CODORGAN", persona.getCodigoOrganizacion()); 
+			spq.setParameter("p_CODINSTI", persona.getCodigoInstitucion()); 
+			spq.setParameter("p_CODSEDEI", persona.getCodigoSede()); 
 			
 			spq.execute();
 			

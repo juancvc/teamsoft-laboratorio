@@ -131,12 +131,8 @@ input[type=text] {
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
 
-		<jsp:include
-			page="/layout/head-nav-view.jsp" />
-
-
-		<jsp:include
-			page="/layout/menu-view.jsp" />
+		<jsp:include page="/layout/head-nav-view.jsp" />  
+		<jsp:include page="/layout/menu-view.jsp" />
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
@@ -486,7 +482,7 @@ input[type=text] {
 			
 		</div>
 	<jsp:include
-			page="${pageContext.request.contextPath}/../layout/footer-view.jsp" />
+			page="/layout/footer-view.jsp" />
 			</div>
 			<input type="hidden"  id="txtIndexExamen"  />
 		
@@ -517,8 +513,7 @@ input[type=text] {
 		
 		<!-- Control Sidebar -->
  
- <jsp:include
-			page="/layout/confirmacion-modal-view.jsp" />
+ <jsp:include page="/layout/confirmacion-modal-view.jsp" />
 	
 	<!-- ./wrapper -->
 		<!-- jQuery 3 -->

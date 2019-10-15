@@ -11,19 +11,19 @@ import javax.persistence.StoredProcedureParameter;
 
 @NamedStoredProcedureQueries({
 	@NamedStoredProcedureQuery(name = "ubigeo.equivalenciaReniecMinsa", 
-			procedureName = "[GENE].[USP_UBIGEO_CODREGISQ]", 
+			procedureName = "GENE.USP_UBIGEO_CODREGISQ", 
 			resultClasses = Ubigeo.class, 
 			parameters = {			
 					@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODUBIGE", type = String.class),
 		}), 
 	
 	@NamedStoredProcedureQuery(name = "ubigeo.listaUbigeo", 
-			procedureName = "[GENE].[USP_UBIGEO_MINSA_RENIEC_INEI]", 
+			procedureName = "GENE.USP_UBIGEO_MINSA_RENIEC_INEI", 
 			resultClasses = Ubigeo.class, 
 			parameters = {			
-					@StoredProcedureParameter(mode = ParameterMode.IN, name = "INSTITUC", type = String.class),
-					@StoredProcedureParameter(mode = ParameterMode.IN, name = "CATEGORI", type = String.class),
-					@StoredProcedureParameter(mode = ParameterMode.IN, name = "VARIABLE", type = String.class),
+					@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_INSTITUC", type = String.class),
+					@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CATEGORI", type = String.class),
+					@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_VARIABLE", type = String.class),
 		}), 
 })
 

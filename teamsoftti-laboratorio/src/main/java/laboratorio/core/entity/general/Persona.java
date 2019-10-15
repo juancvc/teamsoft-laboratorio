@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 @NamedStoredProcedureQueries(
 		{
 				
-		@NamedStoredProcedureQuery(name = "persona.insertar", procedureName = "[RECO].[PERSONA_INSERT]", resultClasses = Persona.class, parameters = {
+		@NamedStoredProcedureQuery(name = "persona.insertar", procedureName = "RECO.PERSONA_INSERT", resultClasses = Persona.class, parameters = {
 				@StoredProcedureParameter(mode = ParameterMode.OUT, name = "CODPERSO", type = String.class),
 				@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODORGAN", type = String.class),
 				@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODINSTI", type = String.class),
@@ -36,45 +36,48 @@ import java.sql.Timestamp;
 				@StoredProcedureParameter(mode = ParameterMode.IN, name = "NROCELU", type = String.class),
 				@StoredProcedureParameter(mode = ParameterMode.IN, name = "SWRENIEC", type = String.class), }),
 			
-		@NamedStoredProcedureQuery(name = "persona.insertarPersonaLaboratorio", procedureName = "[GENE].[USP_PERSONA_INSERT_LABORATORIO]", resultClasses = Persona.class, parameters = {
+		@NamedStoredProcedureQuery(name = "persona.insertarPersonaLaboratorio", procedureName = "GENE.USP_PERSONA_INSERT_LABORATORIO", resultClasses = Persona.class, parameters = {
  
-				@StoredProcedureParameter(mode = ParameterMode.OUT, name = "CODPERSO", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.OUT, name = "p_CODPERSO", type = String.class),
 			 
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "APEPATER", type = String.class),
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "APEMATER", type = String.class),
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "PRINOMBR", type = String.class),
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "SEGNOMBR", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_APEPATER", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_APEMATER", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_PRINOMBR", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_SEGNOMBR", type = String.class),
 
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "TG1SEXOP", type = String.class),
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "FECHANACI", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_TG1SEXOP", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_FECHANACI", type = String.class),
 				
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODTIPOD", type = String.class),
-				@StoredProcedureParameter(mode = ParameterMode.INOUT, name = "NRODOCUM", type = String.class), 
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODTIPOD", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.INOUT, name = "p_NRODOCUM", type = String.class), 
 
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "TG1NACIO", type = String.class),
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "TG1ESCIV", type = String.class),
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "LUGANACI", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_TG1NACIO", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_TG1ESCIV", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_LUGANACI", type = String.class),
 				
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "TG1NIINS", type = String.class),
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "TG1OCUPA", type = String.class),
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "FOTO", 	  type = byte[].class),
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_TG1NIINS", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_TG1OCUPA", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_FOTO", 	  type = byte[].class),
 				 
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "CORREODE", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CORREODE", type = String.class),
 				
-				@StoredProcedureParameter(mode = ParameterMode.OUT, name = "CODDIXPE", type = String.class),
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "DIRECCIO", type = String.class), 
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODRGUBI", type = String.class),
-				 
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "TELFNUMR", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.OUT, name = "p_CODDIXPE", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_DIRECCIO", type = String.class), 
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODRGUBI", type = String.class),
 				
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "VARENIEC", type = String.class),
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "ORIGREGI", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_TELFNUMR", type = String.class),
 				
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "AUCDUSCR", type = String.class),
-				@StoredProcedureParameter(mode = ParameterMode.IN, name = "AUPCIPCR", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_VARENIEC", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_ORIGREGI", type = String.class),
+				
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_AUCDUSCR", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_AUPCIPCR", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODORGAN", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODINSTI", type = String.class),
+				@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODSEDEI", type = String.class),
 			}),
 		
-		@NamedStoredProcedureQuery(name = "persona.actualizarPersonaBanco", procedureName = "SIGEHOV2GENE.[GENE].[USP_PERSONA_UPDATE_BANCO_WEB]", resultClasses = Persona.class, parameters = {
+		@NamedStoredProcedureQuery(name = "persona.actualizarPersonaBanco", procedureName = "SIGEHOV2GENE.[GENE.USP_PERSONA_UPDATE_BANCO_WEB", resultClasses = Persona.class, parameters = {
 				
 				@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODORGAN", type = String.class),
 				@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODINSTI", type = String.class),
@@ -105,17 +108,17 @@ import java.sql.Timestamp;
 		
 		@NamedStoredProcedureQuery(
 							name="persona.buscarPorDocumento", 
-							procedureName="[GENE].[USP_PERSONA_FIND_BY_NRODOC]",
+							procedureName="GENE.USP_PERSONA_FIND_BY_NRODOC",
 							resultClasses= Persona.class,
 							parameters={ 
-										@StoredProcedureParameter(mode=ParameterMode.IN,name="TG1TPDOC", type=String.class ),
-										@StoredProcedureParameter(mode=ParameterMode.IN,name="NRODOCUM", type=String.class )
+										@StoredProcedureParameter(mode=ParameterMode.IN,name="t_TG1TPDOC", type=String.class ),
+										@StoredProcedureParameter(mode=ParameterMode.IN,name="t_NRODOCUM", type=String.class )
 								}					
 						),
 				
 				@NamedStoredProcedureQuery(
 						name="persona.buscarPorDocumentoSigeho", 
-						procedureName="[GENE].[PERSONA_SIGEHO_FIND_BY_NRODOC]",
+						procedureName="GENE.PERSONA_SIGEHO_FIND_BY_NRODOC",
 						resultClasses= Persona.class,
 						parameters={ 
 									@StoredProcedureParameter(mode=ParameterMode.IN,name="TG1TPDOC", type=String.class ),
@@ -124,7 +127,7 @@ import java.sql.Timestamp;
 							}					
 					),
 				@NamedStoredProcedureQuery(name ="persona.buscarPorFiltros", 
-				procedureName = "[LABO].[USP_PACIENTE_LISTAR_X_FILTROS]",
+				procedureName = "LABO.USP_PACIENTE_LISTAR_X_FILTROS",
 				resultClasses = Persona.class,
 				parameters = {
 						
@@ -136,7 +139,7 @@ import java.sql.Timestamp;
 			
 				@NamedStoredProcedureQuery(
 						name="persona.listar", 
-						procedureName="[SIGEHOV2ASIS].[ATEN].[USP_REFERECB_ADMISION_BUSCA_PACIENTE_DNI_V2]",
+						procedureName="SIGEHOV2ASIS.ATEN.USP_REFERECB_ADMISION_BUSCA_PACIENTE_DNI_V2",
 						resultClasses= Persona.class,
 						parameters={
 									@StoredProcedureParameter(mode=ParameterMode.IN,name="dnipacit", type=String.class )

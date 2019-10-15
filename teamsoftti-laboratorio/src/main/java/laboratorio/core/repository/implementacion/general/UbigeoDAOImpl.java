@@ -54,9 +54,9 @@ public  class UbigeoDAOImpl implements UbigeoDAO {
 		List<UbigeoBean> lstUbigeoBean = null;
 		
 			StoredProcedureQuery spq = em.createNamedStoredProcedureQuery("ubigeo.listaUbigeo");
-			spq.setParameter("INSTITUC", t.getInstitucion());  
-			spq.setParameter("CATEGORI", t.getCategoria()); 
-			spq.setParameter("VARIABLE", t.getVariable());   
+			spq.setParameter("p_INSTITUC", t.getInstitucion());  
+			spq.setParameter("p_CATEGORI", t.getCategoria()); 
+			spq.setParameter("p_VARIABLE", t.getVariable());   
 			if (spq.execute()) {
 				lstUbigeo =  spq.getResultList(); 
 			} 
