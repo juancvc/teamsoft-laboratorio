@@ -6,88 +6,88 @@ import java.sql.Timestamp;
 
 @NamedStoredProcedureQueries({
 		@NamedStoredProcedureQuery(name = "ordenDetalleItem.insertar",
-				procedureName = "[LABO].[ORDET_ASOC_ITEMS_INSERT]", resultClasses = Orden_laboratorio_detalle_item.class, parameters = {
+				procedureName = "LABO.ORDET_ASOC_ITEMS_INSERT", resultClasses = Orden_laboratorio_detalle_item.class, parameters = {
 			
 						
 						
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODORGAN", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODINSTI", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODSEDEI", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.OUT, name = "CODORDAS", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODORDDE", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "NRVEORDE", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "NROPORDE", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODORGAN", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODINSTI", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODSEDEI", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.OUT, name = "p_CODORDAS", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODORDDE", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_NRVEORDE", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_NROPORDE", type = String.class),
  
-		    @StoredProcedureParameter(mode = ParameterMode.IN, name = "AUCDUSCR", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "AUPCIPCR", type = String.class),
+		    @StoredProcedureParameter(mode = ParameterMode.IN, name = "p_AUCDUSCR", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_AUPCIPCR", type = String.class),
  }),
 @NamedStoredProcedureQuery(name = "ordenDetalleItem.modificar",
-			procedureName = "[LABO].[USP_ORDEN_DETALLE_ITEM_RESULTADOS_UPDATE]",
+			procedureName = "LABO.USP_ORDEN_DETALLE_ITEM_RESULTADOS_UPDATE",
 			resultClasses = Orden_laboratorio_detalle_item.class, parameters = {
 				
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODORGAN", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODINSTI", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODSEDEI", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODORDAS", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODORDEN", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "NROPERIO", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "RESULTADO",type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "TIPO", 	  type = String.class),
-		    @StoredProcedureParameter(mode = ParameterMode.IN, name = "AUCDUSMO", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "AUPCIPMO", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODORGAN", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODINSTI", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODSEDEI", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODORDAS", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODORDEN", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_NROPERIO", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_RESULTADO",type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_TIPO", 	  type = String.class),
+		    @StoredProcedureParameter(mode = ParameterMode.IN, name = "p_AUCDUSMO", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_AUPCIPMO", type = String.class),
  }),
-@NamedStoredProcedureQuery(name = "ordenDetalleItem.eliminar", procedureName = "[LABO].[USP_ORDEN_ANULAR]", resultClasses = Orden_laboratorio_detalle_item.class, parameters = {
+@NamedStoredProcedureQuery(name = "ordenDetalleItem.eliminar", procedureName = "LABO.USP_ORDEN_ANULAR", resultClasses = Orden_laboratorio_detalle_item.class, parameters = {
 			
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODORGAN", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODINSTI", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODSEDEI", type = String.class),  
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "NROPERIO", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODORDEN", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODORGAN", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODINSTI", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODSEDEI", type = String.class),  
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_NROPERIO", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODORDEN", type = String.class),
 			
-		    @StoredProcedureParameter(mode = ParameterMode.IN, name = "TG1TPANU", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "MOTIVOAN", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "AUCDUSMO", type = String.class),
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "AUPCIPMO", type = String.class),
+		    @StoredProcedureParameter(mode = ParameterMode.IN, name = "p_TG1TPANU", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_MOTIVOAN", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_AUCDUSMO", type = String.class),
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_AUPCIPMO", type = String.class),
 			
  }),
 @NamedStoredProcedureQuery(name = "ordenDetalleItem.buscarPorFiltros", procedureName = "LABO.USP_ORDEN_LISTAR_X_FILTROS", resultClasses = Orden_laboratorio_detalle_item.class, parameters = {
 		
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "FECDESDE", type = String.class) ,
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "FECHASTA", type = String.class) ,
-			@StoredProcedureParameter(mode = ParameterMode.IN, name = "SITUACRG", type = String.class) 
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_FECDESDE", type = String.class) ,
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_FECHASTA", type = String.class) ,
+			@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_SITUACRG", type = String.class) 
  }),
 
 @NamedStoredProcedureQuery(name = "ordenDetalleItem.buscarPorCodigoDetalle",
 
-		procedureName = "[LABO].[USP_ORDET_ITEM_LISTAR_X_CODDETALLE]",
+		procedureName = "LABO.USP_ORDET_ITEM_LISTAR_X_CODDETALLE",
 		
 	    resultClasses = Orden_laboratorio_detalle_item.class, parameters = {
 		
-		@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODORGAN", type = String.class) ,
-		@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODINSTI", type = String.class) ,
-		@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODSEDEI", type = String.class) ,
-		@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODORDEN", type = String.class) 
+		@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODORGAN", type = String.class) ,
+		@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODINSTI", type = String.class) ,
+		@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODSEDEI", type = String.class) ,
+		@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODORDEN", type = String.class) 
 }),
 
 @NamedStoredProcedureQuery(name = "ordenDetalleItem.buscarPorCodigoOrden",
 
-		procedureName = "[LABO].[USP_ORDET_ITEM_LISTAR_X_CODORDEN]",
+		procedureName = "LABO.USP_ORDET_ITEM_LISTAR_X_CODORDEN",
 		
 		resultClasses = Orden_laboratorio_detalle_item.class, parameters = {
 		
-		@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODORGAN", type = String.class) ,
-		@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODINSTI", type = String.class) ,
-		@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODSEDEI", type = String.class) ,
-		@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODORDEN", type = String.class) 
+		@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODORGAN", type = String.class) ,
+		@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODINSTI", type = String.class) ,
+		@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODSEDEI", type = String.class) ,
+		@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODORDEN", type = String.class) 
 }),
 
-@NamedStoredProcedureQuery(name = "ordenDetalleItem.buscarPorObjeto", procedureName = "[SIGEHOV2BANC].[BANC].[POSTULANTE_CAMPANIA_LISTA_X_OBJETO]", resultClasses = Orden_laboratorio_detalle_item.class, parameters = {
+@NamedStoredProcedureQuery(name = "ordenDetalleItem.buscarPorObjeto", procedureName = "[SIGEHOV2BANC].[BANC].[POSTULANTE_CAMPANIA_LISTA_X_OBJETO", resultClasses = Orden_laboratorio_detalle_item.class, parameters = {
 		
-		@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODORGAN", type = String.class) ,
-		@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODINSTI", type = String.class) ,
-		@StoredProcedureParameter(mode = ParameterMode.IN, name = "CODSEDEI", type = String.class) ,
-		@StoredProcedureParameter(mode = ParameterMode.IN, name = "NROPERIO", type = String.class) ,
-		@StoredProcedureParameter(mode = ParameterMode.IN, name = "NROPOST", type = String.class) 
+		@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODORGAN", type = String.class) ,
+		@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODINSTI", type = String.class) ,
+		@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_CODSEDEI", type = String.class) ,
+		@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_NROPERIO", type = String.class) ,
+		@StoredProcedureParameter(mode = ParameterMode.IN, name = "p_NROPOST", type = String.class) 
 		
 }),
  
