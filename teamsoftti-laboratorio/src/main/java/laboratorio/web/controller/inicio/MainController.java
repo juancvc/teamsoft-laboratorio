@@ -29,7 +29,7 @@ public class MainController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView goLogin() {
 		LoginVo prmLogin = new LoginVo();
-		return  new ModelAndView("seguridad/login/login-admin", "command",prmLogin);
+		return  new ModelAndView("seguridad/login/login", "command",prmLogin);
 	}
 	
 	@RequestMapping(value = "/lista", method = RequestMethod.GET)
