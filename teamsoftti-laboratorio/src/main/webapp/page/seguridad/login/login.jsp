@@ -46,7 +46,7 @@
             <div class="row">
               <div class="col-lg-6 d-none d-lg-block">
               <img id="imgFotoPaciente"  width="100%" height="100%"
-				src="${pageContext.request.contextPath}/assets/img/segu/logoEmpresaNegro.png" />
+				src="${pageContext.request.contextPath}/assets/img/segu/logoLaboratorio.png" />
               </div>
               <div class="col-lg-6">
                 <div class="p-4">
@@ -82,7 +82,7 @@
          
                   
                    <div class="text-center">
-                    <a class="small" href="forgot-password.html">OlvidÃ³ su contraseÃ±a?</a>
+                    <a class="small" href="#">¿Olvidó su contraseña?</a>
                   </div>
                   <!-- <div class="text-center">
                     <a class="small" href="register.html">Create an Account!</a>
